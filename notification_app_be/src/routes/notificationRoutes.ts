@@ -1,16 +1,20 @@
-import { Router } from "express";
+import express from "express";
 
 import {
   getNotifications,
-  createNotification
+  createNotification,
+  getPriorityNotifications
 } from "../controllers/notificationController";
 
-const router = Router();
+const router = express.Router();
 
-// GET notifications
+// GET all notifications
 router.get("/", getNotifications);
 
-// POST notification
+// CREATE notification
 router.post("/", createNotification);
+
+// GET top priority notifications
+router.get("/top", getPriorityNotifications);
 
 export default router;
